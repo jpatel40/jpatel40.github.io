@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Groupie tracker</title>
+    <link rel="stylesheet" href="static/gtracker.css">
+</head>
+
+<body>
+    <section>
+        <div>
+            <form class="form-inline" action="/" method="POST">
+                <input type="submit" class="MainPage-btn" value="Main Page">
+            </form>
+        </div>
+
+        <div class="concert">
+            <img class="mr-3" src={{.Image}} width="400" alt={{.Name}}>
+            <div class="media-body-artist">
+                <h1 style="color:yellow">{{.Name}}</h1>
+                <p style="color:yellow">
+                <h3 style="color:yellow">Creation Date:{{.CreationDate}}</h3>
+                <h3 style="color:white">*</h3>
+                <h3 style="color:yellow">First Album Released:{{.FirstAlbum}}</h3>
+                </p>
+                <h3 style="color:white">*</h3>
+                <p style="color:yellow"><b>Members:</b> {{range .Members}} {{.}}, {{end}}
+                <h3 style="color:white">*</h3>
+                <div class="container" ;>
+                    <div>
+                        <p style="color:black">{{range $key, $value := .DatesLocations}}</p>
+                        <div class="artist-data">
+                            <p style="color:white"><b>{{$key}}</b></p>
+                        </div>
+                        <p style="color:black"> {{range $value}} </p>
+                        <div class="data">
+                            <p style="color:yellow"> {{.}}</p>
+                        </div>
+                        {{end}} {{end}}
+                    </div>
+                </div>
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

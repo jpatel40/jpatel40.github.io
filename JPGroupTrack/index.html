@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Groupie tracker</title>
+    <link rel="stylesheet" href="static/gtracker.css">
+</head>
+
+<body>
+    <!-- section id="navigation"> -->
+    <div>
+        <form class="form-inline" action="/" method="POST">
+            <input type="submit" name="main" class="MainPage-btn" value="Main Page">
+        </form>
+    </div>
+    </section>
+    <section id="search-bar">
+        <!--p style="color:rgb(6, 81, 106)"> Type for artist-hit Enter to start </p> -->
+        <h1>Groupie Artist Tracker</h1>
+        <p> Search Artist and Enter</p>
+        <div class="search" id="search">
+            <form class="form-inline" action="/" method="POST">
+                <input type="text" name="search" placeholder="type b to see list of bands" list="character">
+                <datalist id="character">
+                    {{range .}}
+                    <option value={{.Name}}>{{.Name}} - artist/band</option>
+                    {{range .Members}}
+                    <!-- <option value="{{.}}">{{.}} - member</option> -->
+                    {{end}}
+                    {{range .Locations}}
+                    <!-- <option value={{.}}>{{.}} - location</option> -->
+                    {{end}}
+                    <!-- <option value={{.CreationDate}}>{{.CreationDate}} - Creation Date</option> -->
+                    <!-- <option value={{.FirstAlbum}}>{{.FirstAlbum}} - First Album Release Date</option> -->
+                    {{end}}
+                </datalist>
+                <button type="submit" hidden="true"></button>
+            </form>
+        </div>
+    </section>
+    <br>
+    <!-- <section id="filter">
+
+        <form action="/" method="POST">
+            <div class="filter">
+                <label class="filter-title" for="startCD">Filter by creation date</label>
+                <div id=start>
+                    <input type="range" min="1900" max="2020" step="1" id="startCD" name="startCD" value="1900">
+                    <input type="range" min="1900" max="2020" step="1" id="endCD" name="endCD" value="2020">
+                </div>
+                <label class="filter-item-start" for="from-date" top>From: </label><br/>
+                <div name="from-date" class="filter-item filter-number" id="from-date" maxlength="4"></div>
+                <label class="filter-item-start" for="till-date" top>Till: </label><br/>
+                <div name="till-date" class="filter-item filter-number" id="till-date" maxlength="4"></div>
+            </div>
+            <br>
+            <div class="filter">
+                <lable class="filter-title">Filter by first album date</lable>
+                <label class="filter-item" for="startFA">From:</label>
+                <input type="date" class="filter-item" id="startFA" name="startFA">
+                <label for="endFA" class="filter-item" for="till-date" top>Till: </label><br/>
+                <input type="date" class="filter-item" id="endFA" name="endFA">
+            </div>
+            <br>
+            <div class="filter">
+                <lable class="filter-title">Filter by number of members</lable>
+                <input type="checkbox" class="filter-item" id="1" name="mem1" value="1">
+                <label for="1"> 1 </label>
+                <input type="checkbox" class="filter-item" id="2" name="mem2" value="2">
+                <label for="2"> 2 </label>
+                <input type="checkbox" class="filter-item" id="3" name="mem3" value="3">
+                <label for="3"> 3 </label>
+                <input type="checkbox" class="filter-item" id="4" name="mem4" value="4">
+                <label for="4"> 4 </label>
+                <input type="checkbox" class="filter-item" id="5" name="mem5" value="5">
+                <label for="5"> 5 </label>
+                <input type="checkbox" class="filter-item" id="6" name="mem6" value="6">
+                <label for="6"> 6 </label>
+                <input type="checkbox" class="filter-item" id="7" name="mem7" value="7">
+                <label for="7"> 7 </label>
+                <input type="checkbox" class="filter-item" id="8" name="mem8" value="8">
+                <label for="8"> 8 </label>
+            </div>
+            <br>
+            <div class="filter">
+                <label class="filter-title" for="location-filter">Filter by locations of concerts</label>
+                <input type="text" class="filter-item" id="location-filter" name="location-filter" placeholder="Location" list="location-name">
+                <datalist style="text-transform: uppercase;" id="location-name">
+                    {{range .}}
+                    {{range .Locations}}
+                    <option value={{.}}>{{.}} - location</option>
+                    {{end}}
+                    {{end}}
+                </datalist>
+            </div>
+
+            <br>
+            <button type="submit" class="filter-submit">Filter</button>
+            <br>
+        </form>
+
+
+        <script>
+            document.getElementById('from-date').style.visibility = 'hidden';
+            document.getElementById('till-date').style.visibility = 'hidden';
+            document.getElementById('startCD').addEventListener('input', function functionName(e) {
+                document.getElementById('from-date').style.visibility = 'visible';
+                let start = e.target.value;
+                console.log(start);
+                document.getElementById('from-date').innerHTML = start;
+
+            });
+
+            document.getElementById('endCD').addEventListener('input', function functionName(e) {
+                document.getElementById('till-date').style.visibility = 'visible';
+                let end = e.target.value;
+                console.log(end);
+                document.getElementById('till-date').innerHTML = end;
+
+            });
+        </script>
+
+    </section> -->
+
+    <div class="cards">
+        {{range .}}
+        <div class="card">
+            <!--div class="card text-white bg-dark h-80" style="width: 200px;"-->
+            <img id="img" src={{.Image}} class="card-img-top" alt={{.Name}}><br>
+            <div class="card-header" style="font-size: 30px;">{{.Name}}</div>
+            <div class="card-footer text-white bg-dark">
+                <form class="form-inline" action="/concert" method="POST">
+                    <input type="hidden" name="concert" value={{.ID}}>
+                    <input type="submit" class="Consch-btn" value="Concert Schedule">
+                    <br>
+                </form>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Members</h4>
+                {{range .Members}}
+                <!--ul class="card-list"> -->
+                <ul id="card-list">
+                    <li>{{.}}</li>
+                </ul>
+                {{end}}
+                <h2>*</h2>
+                <h4 class="card-title">Creation Date</h4>
+                <p class="card-text"> {{.CreationDate}}</p>
+                <h2>*</h2>
+                <h4 class="card-title">First Album Released</h4>
+                <p class="card-text">{{.FirstAlbum}}</p>
+
+            </div>
+            <!--/div-->
+        </div>
+        {{end}}
+    </div>
+
+    </section>
+
+</body>
+
+</html>
