@@ -1,0 +1,179 @@
+
+.MainPage-btn {
+	background-color: black; /* Green */
+	border-radius: 14px;
+	float:left;  /* Positioning of Button */
+	color: yellow;
+	padding: 5px 10px;
+	text-align: center;
+	box-shadow: 0 8px 14px 0 white;
+	font-size: 14px;
+  }
+
+.Consch-btn {
+	border-radius: 14px;
+	color: black;
+	/* padding: 5px 10px; */
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	box-shadow: 0 8px 14px 0 black;
+	
+}
+
+h1 {
+	font-family: 'Times New Roman', Times, serif;
+	text-align: center;
+	font-size: 30px;
+	color: yellow;
+	
+}
+body {
+	background-color: rgba(232, 233, 227, 0.959);
+	background-image: url("img/festival.jpg"); /* Individual Card background */
+	text-align: center;
+	font-size: 0.8rem;
+	
+}
+
+
+#search-bar {
+	font-size: 12;
+	font-family: 'Times New Roman', Times, serif;
+	background-color: black;
+  }
+
+  #search-bar p {
+	font-size: 18px;
+	color: yellow;
+  }
+
+
+.container {
+	font-family: 'Roboto';
+	color: black;
+}
+
+.concert media-body-artist {
+	color:yellow
+}
+
+
+.logo>a {
+	font-family: 'Pacifico';
+	font-size: 24px;
+	color: rgba(76, 0, 130, 0.74);
+	text-decoration: none;
+}
+	
+.cards {
+ 	display: grid;
+	background-image: url("img/festival.jpg");   /* Background on Main Index page */
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap:1px;
+	grid-auto-rows: auto;
+	grid-gap: 1rem;   /* blue box around card  */
+	row-gap: 10px;
+	
+	}
+
+.card {
+	background-color: rgba(232, 233, 227, 0.959);
+	background-image: url("img/gray.jpg"); /* Individual Card background */
+	text-align: center;
+	font-size: 0.8rem;
+	font-weight: bold;
+}
+	
+.card img {
+	border-radius: 10px 10px 0 0;
+	
+}
+
+.card-img-top {
+	border-top: 2px;
+
+}
+
+.card p {
+	margin-bottom: 0.4rem;
+}
+
+
+.concert {
+	background-image: url("img/festival.jpg");   /* Background on Concert schedule */
+	background-color: rgba(232, 233, 227, 0.959); 
+	border: 2px solid #131313;
+	text-align: center;
+	font-weight: bold;
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 16px;
+	border-radius: 10px;
+}
+
+
+.rightflow p {
+	text-align: right;
+}
+
+.card-body {
+	text-align: center;
+	font-weight: bold;
+	font-size: .9rem;
+	color:black
+}
+
+h4.card-title {
+	text-align: center;
+	font-weight: bold;
+	font-size: .9rem;
+}
+
+.card-header {
+	text-align: center;
+	font-weight: bold;
+	font-size: .9rem;
+}
+
+ul#card-list {
+	list-style-type: none;
+	text-align: center;
+	font-weight: bold;
+	padding: 0%;
+}
+.card>a {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+
+.card-body card-footer {
+	bottom: 10%;
+	font-size: .8rem;
+	color: blue;
+}
+
+.card:hover {
+    box-shadow: 0 8px 17px 2px rgba(145, 187, 255, 0.5), 
+                0 3px 14px 2px rgba(145, 187, 255, 0.4), 
+                0 5px 5px -3px rgba(145, 187, 255, 0.3);
+}
+
+.has {
+    color: rgba(0, 0, 255, 0.596)!important;
+}
+
+/*
+#map {
+    border-radius: 5px;
+}
+
+#map>ymaps{
+    border-radius: 5px;
+}
+*/
+.error-template {padding: 40px 15px;text-align: center;}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+.error-actions .btn { margin-right:10px; }
