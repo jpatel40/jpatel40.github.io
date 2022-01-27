@@ -36,25 +36,26 @@ body {
 	
 }
 
-
 #search-bar {
 	font-size: 12;
 	font-family: 'Times New Roman', Times, serif;
-	background-color: black;
+	
+
   }
 
   #search-bar p {
 	font-size: 18px;
+/*	font-family: 'Times New Roman', Times, serif; */
 	color: yellow;
   }
-
-
 .container {
 	font-family: 'Roboto';
 	color: black;
+	
 }
 
 .concert media-body-artist {
+	
 	color:yellow
 }
 
