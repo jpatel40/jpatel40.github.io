@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -456,6 +457,14 @@ func ServerStatus(w http.ResponseWriter, r *http.Request) { // validate by clien
 }
 
 func main() {
+	port = os.Getenv("PORT")
+
+	if port == "" {
+		port = ":8080"
+	} else {
+		port = ":" + port
+	}
+
 	http.HandleFunc("/", mainPage)
 	// static folder
 	fs := http.FileServer(http.Dir("static"))
@@ -464,7 +473,7 @@ func main() {
 	http.HandleFunc("/concert", concertPage)
 	http.HandleFunc("/status", ServerStatus)
 
-	port = ":8080"
+	//port = ":8080"
 	println("Server listen on port:", port)
 	count := 0
 	for count < 2 {
